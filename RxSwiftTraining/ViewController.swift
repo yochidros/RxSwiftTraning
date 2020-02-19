@@ -8,21 +8,25 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
+import RxOptional
 
 class ViewController: UIViewController {
 
 	@IBOutlet weak var label: UILabel?
-	
-	private lazy var loadingView: UIActivityIndicatorView? = {
-		let p = UIActivityIndicatorView(style: .large)
-		p.frame = CGRect(origin: .init(x: 40, y: 50), size: .init(width: 20, height: 20))
-		p.color = .red
-		p.hidesWhenStopped = true
-		self.view.addSubview(p)
-		return p
-	}()
+	@IBOutlet weak var loginButton: UIButton?
+
+	private var disposeBag = DisposeBag()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		loginButton?.rx
+			.tap
+			.subscribe(onNext: { [weak self] in
+				self?.label?.text = "hello login"
+			})
+		.disposed(by: disposeBag)
 	}
+	
 }

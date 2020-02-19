@@ -1,3 +1,6 @@
 
 # RxSwift
 github "ReactiveX/RxSwift" ~> 5.0
+
+# RxSwift Optional
+github "RxSwiftCommunity/RxOptional" ~> 4.1.0
