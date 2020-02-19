@@ -11,7 +11,7 @@
 		F23F22A023FBBC2A00448A0F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23F229A23FBBC2A00448A0F /* RxCocoa.framework */; };
 		F23F22A223FBBC2A00448A0F /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23F229B23FBBC2A00448A0F /* RxRelay.framework */; };
 		F23F22A423FBBC2A00448A0F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23F229C23FBBC2A00448A0F /* RxSwift.framework */; };
-		F23F22A623FBBC2A00448A0F /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23F229D23FBBC2A00448A0F /* RxTest.framework */; };
+		F23F22AB23FCC51800448A0F /* RxOptional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23F22AA23FCC51800448A0F /* RxOptional.framework */; };
 		F2E7EAA023FB8EED00FE2FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7EA9F23FB8EED00FE2FC9 /* AppDelegate.swift */; };
 		F2E7EAA223FB8EED00FE2FC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7EAA123FB8EED00FE2FC9 /* SceneDelegate.swift */; };
 		F2E7EAA423FB8EED00FE2FC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7EAA323FB8EED00FE2FC9 /* ViewController.swift */; };
@@ -46,6 +46,7 @@
 		F23F229B23FBBC2A00448A0F /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		F23F229C23FBBC2A00448A0F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		F23F229D23FBBC2A00448A0F /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		F23F22AA23FCC51800448A0F /* RxOptional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxOptional.framework; path = Carthage/Build/iOS/RxOptional.framework; sourceTree = "<group>"; };
 		F2E7EA9C23FB8EED00FE2FC9 /* RxSwiftTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E7EA9F23FB8EED00FE2FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2E7EAA123FB8EED00FE2FC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,10 +68,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F23F22AB23FCC51800448A0F /* RxOptional.framework in Frameworks */,
 				F23F22A423FBBC2A00448A0F /* RxSwift.framework in Frameworks */,
 				F23F22A023FBBC2A00448A0F /* RxCocoa.framework in Frameworks */,
 				F23F229E23FBBC2A00448A0F /* RxBlocking.framework in Frameworks */,
-				F23F22A623FBBC2A00448A0F /* RxTest.framework in Frameworks */,
 				F23F22A223FBBC2A00448A0F /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +104,7 @@
 		F23F229823FBBC2A00448A0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F23F22AA23FCC51800448A0F /* RxOptional.framework */,
 				F23F229923FBBC2A00448A0F /* RxBlocking.framework */,
 				F23F229A23FBBC2A00448A0F /* RxCocoa.framework */,
 				F23F229B23FBBC2A00448A0F /* RxRelay.framework */,
@@ -110,6 +112,16 @@
 				F23F229D23FBBC2A00448A0F /* RxTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F23F22A923FCBEA300448A0F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F2E7EAA823FB8EEE00FE2FC9 /* Assets.xcassets */,
+				F2E7EAAA23FB8EEE00FE2FC9 /* LaunchScreen.storyboard */,
+				F2E7EAAD23FB8EEE00FE2FC9 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F2E7EA9323FB8EED00FE2FC9 = {
@@ -136,14 +148,12 @@
 		F2E7EA9E23FB8EED00FE2FC9 /* RxSwiftTraining */ = {
 			isa = PBXGroup;
 			children = (
+				F23F22A923FCBEA300448A0F /* Resources */,
 				F23F229723FBBB5D00448A0F /* Support */,
 				F2E7EA9F23FB8EED00FE2FC9 /* AppDelegate.swift */,
 				F2E7EAA123FB8EED00FE2FC9 /* SceneDelegate.swift */,
 				F2E7EAA323FB8EED00FE2FC9 /* ViewController.swift */,
 				F2E7EAA523FB8EED00FE2FC9 /* Main.storyboard */,
-				F2E7EAA823FB8EEE00FE2FC9 /* Assets.xcassets */,
-				F2E7EAAA23FB8EEE00FE2FC9 /* LaunchScreen.storyboard */,
-				F2E7EAAD23FB8EEE00FE2FC9 /* Info.plist */,
 			);
 			path = RxSwiftTraining;
 			sourceTree = "<group>";
@@ -501,7 +511,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = RxSwiftTraining/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RxSwiftTraining/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,7 +533,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = RxSwiftTraining/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RxSwiftTraining/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
