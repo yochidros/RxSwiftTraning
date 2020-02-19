@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
 	@IBOutlet weak var label: UILabel?
 	@IBOutlet weak var loginButton: UIButton?
+	@IBOutlet weak var textField: UITextField?
 
 	private var disposeBag = DisposeBag()
 	
@@ -27,6 +28,27 @@ class ViewController: UIViewController {
 				self?.label?.text = "hello login"
 			})
 		.disposed(by: disposeBag)
+		guard let l = label else { return }
+		textField?.rx.text
+			.map({ (text) -> String? in
+				guard let t = text else { return nil }
+				return t
+			})
+			.filterNil()
+			.bind(to: l.rx.text)
+			.disposed(by: disposeBag)
+		
+		_ = muJust(100)
+			.subscribe(onNext: { (value) in
+				print(value)
+			})
 	}
 	
+	private func muJust<E>(_ element: E) -> Observable<E> {
+		return Observable.create { observer -> Disposable in
+			observer.on(.next(element))
+			observer.on(.completed)
+			return Disposables.create()
+		}
+	}
 }

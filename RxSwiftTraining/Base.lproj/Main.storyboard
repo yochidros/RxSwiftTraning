@@ -25,19 +25,28 @@
                                 <rect key="frame" x="188" y="455" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1lI-ui-O23">
+                                <rect key="frame" x="12" y="517" width="390" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="1lI-ui-O23" firstAttribute="top" secondItem="mpq-Pj-v84" secondAttribute="bottom" constant="32" id="E2K-7J-pC3"/>
                             <constraint firstItem="U3d-cQ-v8Z" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-40" id="Hq7-U3-YoG"/>
                             <constraint firstItem="U3d-cQ-v8Z" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="M4f-fv-kcL"/>
                             <constraint firstItem="mpq-Pj-v84" firstAttribute="centerX" secondItem="U3d-cQ-v8Z" secondAttribute="centerX" id="cZ1-Qh-EDc"/>
                             <constraint firstItem="mpq-Pj-v84" firstAttribute="top" secondItem="U3d-cQ-v8Z" secondAttribute="bottom" constant="42" id="drK-1Q-kAG"/>
+                            <constraint firstItem="1lI-ui-O23" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="wGp-sJ-ppZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1lI-ui-O23" secondAttribute="trailing" constant="12" id="yGH-RE-PSR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="label" destination="U3d-cQ-v8Z" id="BO5-tb-tI7"/>
                         <outlet property="loginButton" destination="mpq-Pj-v84" id="2js-WX-yFL"/>
+                        <outlet property="textField" destination="1lI-ui-O23" id="Y0p-Zd-2WY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
