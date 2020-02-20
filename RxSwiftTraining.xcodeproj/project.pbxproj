@@ -14,6 +14,8 @@
 		F23F22AB23FCC51800448A0F /* RxOptional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23F22AA23FCC51800448A0F /* RxOptional.framework */; };
 		F25DA0CE23FE18E60035D77F /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25DA0CC23FE18E60035D77F /* TopViewController.swift */; };
 		F25DA0CF23FE18E60035D77F /* TopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25DA0CD23FE18E60035D77F /* TopViewController.xib */; };
+		F25DA0D223FE1AF20035D77F /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25DA0D123FE1AF20035D77F /* NSObject+Extension.swift */; };
+		F25DA0D623FE1BFF0035D77F /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25DA0D523FE1BFF0035D77F /* TopViewModel.swift */; };
 		F2E7EAA023FB8EED00FE2FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7EA9F23FB8EED00FE2FC9 /* AppDelegate.swift */; };
 		F2E7EAA923FB8EEE00FE2FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E7EAA823FB8EEE00FE2FC9 /* Assets.xcassets */; };
 		F2E7EAAC23FB8EEE00FE2FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E7EAAA23FB8EEE00FE2FC9 /* LaunchScreen.storyboard */; };
@@ -48,6 +50,8 @@
 		F23F22AA23FCC51800448A0F /* RxOptional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxOptional.framework; path = Carthage/Build/iOS/RxOptional.framework; sourceTree = "<group>"; };
 		F25DA0CC23FE18E60035D77F /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		F25DA0CD23FE18E60035D77F /* TopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewController.xib; sourceTree = "<group>"; };
+		F25DA0D123FE1AF20035D77F /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		F25DA0D523FE1BFF0035D77F /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		F2E7EA9C23FB8EED00FE2FC9 /* RxSwiftTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E7EA9F23FB8EED00FE2FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2E7EAA823FB8EEE00FE2FC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,10 +129,35 @@
 		F25DA0CB23FE18B50035D77F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F25DA0D323FE1BF00035D77F /* Top */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F25DA0D023FE1ADF0035D77F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F25DA0D123FE1AF20035D77F /* NSObject+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F25DA0D323FE1BF00035D77F /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				F25DA0D423FE1BF70035D77F /* ViewModel */,
 				F25DA0CC23FE18E60035D77F /* TopViewController.swift */,
 				F25DA0CD23FE18E60035D77F /* TopViewController.xib */,
 			);
-			path = Presentation;
+			path = Top;
+			sourceTree = "<group>";
+		};
+		F25DA0D423FE1BF70035D77F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F25DA0D523FE1BFF0035D77F /* TopViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F2E7EA9323FB8EED00FE2FC9 = {
@@ -155,6 +184,7 @@
 		F2E7EA9E23FB8EED00FE2FC9 /* RxSwiftTraining */ = {
 			isa = PBXGroup;
 			children = (
+				F25DA0D023FE1ADF0035D77F /* Extension */,
 				F25DA0CB23FE18B50035D77F /* Presentation */,
 				F23F22A923FCBEA300448A0F /* Resources */,
 				F23F229723FBBB5D00448A0F /* Support */,
@@ -335,8 +365,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F25DA0D623FE1BFF0035D77F /* TopViewModel.swift in Sources */,
 				F25DA0CE23FE18E60035D77F /* TopViewController.swift in Sources */,
 				F2E7EAA023FB8EED00FE2FC9 /* AppDelegate.swift in Sources */,
+				F25DA0D223FE1AF20035D77F /* NSObject+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
