@@ -13,11 +13,12 @@ import RxRealm
 import RxSwift
 
 class CounterRealmData: Object {
+	@objc dynamic var id: Int = 1
 	@objc dynamic var count: Int = 0
 	@objc dynamic var timestamp: Date = Date()
 	
 	static override func primaryKey() -> String? {
-		return "count"
+		return "id"
 	}
 }
 
@@ -126,22 +127,37 @@ class CounterLocalStoreAccessor: CounterLocalStorage, LocalStoreAccessor {
 			da.timestamp = d.timestamp
 			return da
 		}
-		let e = localStore?.write(input: data)
-		print(e ?? "success")
+		localStore?.write(input: data)
 	}
 }
 public class LocalStore: NSObject {
 	private var realm: Realm!
 	private let disposeBag = DisposeBag()
 	
+	var realmConfig = Realm.Configuration.defaultConfiguration
+	
 	public override init() {
 		super.init()
+		realmConfig.schemaVersion = 1
+		realmConfig.migrationBlock = { migrantion, old in
+			if old < 1 {
+				migrantion.enumerateObjects(ofType: CounterRealmData.className()) { (old, new) in
+					if let count = old?["count"] as? Int, count == 0 {
+						new?["id"] = 1
+					} else {
+						guard let o = old else { return }
+						migrantion.delete(o)
+					}
+				}
+			}
+				
+		}
 		self.setup()
 	}
 	
 	private func setup() {
 		do {
-			realm = try Realm.init(configuration: .defaultConfiguration)
+			realm = try Realm.init(configuration: realmConfig)
 		} catch let e {
 			dump(e)
 		}
@@ -153,15 +169,16 @@ public class LocalStore: NSObject {
 		}
 		let obj = r.objects(T.self)
 		
-		Observable.collection(from: obj)
-			.map { $0 }
-			.subscribe(onNext: { o in
-				print(o)
-			})
+//		Observable.collection(from: obj)
+//			.map { $0 }
+//			.subscribe(onNext: { o in
+//				print(o)
+//			})
 
 		return .success(obj.map({ $0 }))
 	}
 	
+	@discardableResult
 	func write<T: Object>(input: [T]) -> LocalStoreError? {
 		guard let r = self.realm else {
 			return .initialize
@@ -173,9 +190,9 @@ public class LocalStore: NSObject {
 		Observable.from(optional: input)
 			.subscribe(r.rx.add(update: .all, onError: { (el, error) in
 				if let elements = el {
-					print("\(elements)")
+					print("ERROR: \(elements)")
 				} else {
-					print("\(error)")
+					print("ERROR: \(error.localizedDescription)")
 				}
 			}))
 			.disposed(by: disposeBag)
