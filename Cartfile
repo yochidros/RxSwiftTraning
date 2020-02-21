@@ -4,3 +4,9 @@ github "ReactiveX/RxSwift" ~> 5.0
 
 # RxSwift Optional
 github "RxSwiftCommunity/RxOptional" ~> 4.1.0
+
+# Realm 
+github "realm/realm-cocoa"
+
+# Realm Rx ext
+github "RxSwiftCommunity/RxRealm"

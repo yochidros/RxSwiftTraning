@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxStore
 
 struct TopViewModelInput {
 	let countUpButton: Observable<Void>?
@@ -30,6 +31,7 @@ class TopViewModel: TopViewModelType {
 	private let countRelay = BehaviorRelay<Int>(value: 0)
 	private let count: Int = 0
 	private let disposeBag = DisposeBag()
+	private let localstore = CounterLocalStorageFactory.create()
 	
 	init() {
 		self.outputs = self
@@ -53,18 +55,29 @@ class TopViewModel: TopViewModelType {
 				self?.resetCount()
 			})
 			.disposed(by: disposeBag)
+		
+		let data = localstore.readData().sorted{ $0.timestamp > $1.timestamp }.first
+		guard let f = data else { return }
+		countRelay.accept(f.count)
 	}
 	
 	private func incrementCount() {
 		countRelay.accept(countRelay.value+1)
+		saveCount()
 	}
 	
 	private func decrementCount() {
 		countRelay.accept(countRelay.value-1)
+		saveCount()
+	}
+	
+	private func saveCount() {
+		localstore.writeData(input: [CounterData(count: countRelay.value)])
 	}
 	
 	private func resetCount() {
 		countRelay.accept(0)
+//		saveCount()
 	}
 }
 
